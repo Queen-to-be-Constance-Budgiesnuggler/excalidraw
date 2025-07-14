@@ -2,33 +2,30 @@
 
 ## Project Structure
 
-Excalidraw is a **monorepo** with a clear separation between the core library and the application:
+Excalidraw is structured as a **monorepo**:
 
-- **`packages/excalidraw/`** - Main React component library published to npm as `@excalidraw/excalidraw`
-- **`excalidraw-app/`** - Full-featured web application (excalidraw.com) that uses the library
-- **`packages/`** - Core packages: `@excalidraw/common`, `@excalidraw/element`, `@excalidraw/math`, `@excalidraw/utils`
-- **`examples/`** - Integration examples (NextJS, browser script)
+* **`packages/excalidraw/`** - Main React component library
+* **`excalidraw-app/`** - Full web application
+* **`packages/`** - Core packages (`@excalidraw/common`, `@excalidraw/element`, `@excalidraw/math`, `@excalidraw/utils`)
+* **`examples/`** - Integration examples
 
-## Development Workflow
+## Agent Workflow
 
-1. **Package Development**: Work in `packages/*` for editor features
-2. **App Development**: Work in `excalidraw-app/` for app-specific features
-3. **Testing**: Always run `yarn test:update` before committing
-4. **Type Safety**: Use `yarn test:typecheck` to verify TypeScript
+* **Editing**: Codex should focus edits primarily within `packages/*` and `excalidraw-app/`.
+* **Testing**: Automatically run tests before finalizing changes (`yarn test:update` and `yarn test:typecheck`).
+* **Documentation**: Clearly document changes in Pull Requests.
 
 ## Development Commands
 
 ```bash
-yarn test:typecheck  # TypeScript type checking
-yarn test:update     # Run all tests (with snapshot updates)
-yarn fix             # Auto-fix formatting and linting issues
+yarn install              # Install dependencies
+yarn test:typecheck       # TypeScript checks
+yarn test:update          # Run tests & update snapshots
+yarn fix                  # Format and lint
 ```
 
-## Architecture Notes
+## Contribution Guidelines
 
-### Package System
-
-- Uses Yarn workspaces for monorepo management
-- Internal packages use path aliases (see `vitest.config.mts`)
-- Build system uses esbuild for packages, Vite for the app
-- TypeScript throughout with strict configuration
+* Contributions must pass type checks and automated tests.
+* PR titles: `[<project_name>] <descriptive title>`
+* Clearly document changes in the PR description.
