@@ -1,6 +1,6 @@
-# Excalidraw Tunnel Manager TUI
+# Excaliman Session Manager TUI
 
-This directory contains a Textual-based terminal UI for starting the Excalidraw servers, creating SSH tunnels and monitoring their status. The tool supports multiple environment presets, process restarts and log viewing.
+This directory contains a GPU-accelerated Textual UI designed for the Kitty terminal. It manages both Excalidraw and Excalidraw-Room servers, creates SSH tunnels and monitors their status. Multiple environments are supported along with automatic restarts and log viewing.
 
 The tool relies on the same commands you would normally use when developing Excalidraw locally. Common commands found across this repository include:
 
@@ -19,7 +19,7 @@ The default ports used during development are 3000 for the main app, 3002 for th
    pip install textual
    ```
 
-2. **Adjust configuration** Edit `excalidraw_tunnel_manager.py` and update the following constants at the top of the file:
+2. **Adjust configuration** Edit `excalimanTUI.py` and update the following constants at the top of the file:
    - `SERVER_PATH` / `ROOM_PATH` – paths to your local clones of `excalidraw` and `excalidraw-room` (e.g. `~/path/to/excalidraw`).
    - `SERVER_CMD` / `ROOM_CMD` – commands used to start the servers. Example values are `["yarn", "start"]` for the main app and `["yarn", "start:dev"]` for the Room server. Ensure these commands work locally before using the tunnel manager.
    - `SSH_HOST` – the host that will be used for SSH tunneling.
@@ -30,7 +30,7 @@ The default ports used during development are 3000 for the main app, 3002 for th
 From any terminal run:
 
 ```bash
-python excalidraw_tunnel_manager.py
+python excalimanTUI.py
 ```
 
 The UI lets you launch and stop the Excalidraw and Room servers, view their output in real time and automatically restart them if they crash. It can create and tear down tunnels and reboot everything with a single command. The manager supports multiple environments which define port mappings.

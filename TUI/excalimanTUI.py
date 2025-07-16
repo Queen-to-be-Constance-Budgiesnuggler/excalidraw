@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# excalidraw_tunnel_manager.py
-# A TUI application using Textual to manage Excalidraw and Excalidraw Room tunnels and servers.
+# excalimanTUI.py
+# A GPU‑accelerated Textual TUI for managing Excalidraw and Excalidraw Room servers via Kitty.
 
 import asyncio
 from textual.app import App, ComposeResult
@@ -41,9 +41,9 @@ ENVIRONMENTS = {
     },
 }
 
-class TunnelManager(App):
+class ExcalimanTUI(App):
     """
-    A Textual-based TUI for: 
+    A Textual-based GPU TUI for Kitty that allows you to:
       - Starting, rebooting, and exiting Excalidraw and Room servers
       - Establishing and tearing down SSH tunnels
       - Switching between dev and prod environments
@@ -214,4 +214,4 @@ class TunnelManager(App):
         self.shutting_down = False
 
 if __name__ == "__main__":
-    TunnelManager.run(title="Excalidraw Tunnel Manager")
+    ExcalimanTUI.run(title="Excaliman TUI")

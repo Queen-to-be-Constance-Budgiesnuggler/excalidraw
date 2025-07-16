@@ -5,14 +5,14 @@ import sys
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parents[2]))
-import TUI.excalidraw_tunnel_manager as etm
+import TUI.excalimanTUI as etm
 
 etm.SERVER_CMD = ["python", "-c", "print('server')"]
 etm.ROOM_CMD = ["python", "-c", "print('room')"]
 etm.SERVER_PATH = "."
 etm.ROOM_PATH = "."
 
-class TestManager(etm.TunnelManager):
+class TestManager(etm.ExcalimanTUI):
     async def start_tunnel(self, local_port: int, remote_port: int):
         proc = await asyncio.create_subprocess_exec("true")
         self.tunnel_proc.append(proc)
